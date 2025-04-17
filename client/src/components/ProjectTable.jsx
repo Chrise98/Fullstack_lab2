@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import './ProjectTable.css'; 
+
 
 
 const ProjectTable = () => {
@@ -32,26 +34,28 @@ const ProjectTable = () => {
   };
 
   return (
-    <table border="1" cellPadding="5" style={{ margin: '20px auto', width: '80%' }}>
-      <thead>
-        <tr>
-          <th onClick={() => handleSort('employee_id')}>Employee ID</th>
-          <th onClick={() => handleSort('employee_name')}>Employee Name</th>
-          <th onClick={() => handleSort('project_name')}>Project</th>
-          <th onClick={() => handleSort('start_date')}>Start</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sortedData.slice(0, 5).map((item, idx) => (
-          <tr key={idx}>
-            <td>{item.employee_id.employee_id}</td>
-            <td>{item.employee_id.full_name}</td>
-            <td>{item.project_code.project_name}</td>
-            <td>{new Date(item.start_date).toLocaleDateString()}</td>
+    <div className="table-container">
+      <table className="assignment-table">
+        <thead>
+          <tr>
+            <th onClick={() => handleSort('employee_id')}>Employee ID</th>
+            <th onClick={() => handleSort('employee_name')}>Employee Name</th>
+            <th onClick={() => handleSort('project_name')}>Project</th>
+            <th onClick={() => handleSort('start_date')}>Start</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {sortedData.slice(0, 5).map((item, idx) => (
+            <tr key={idx}>
+              <td>{item.employee_id.employee_id}</td>
+              <td>{item.employee_id.full_name}</td>
+              <td>{item.project_code.project_name}</td>
+              <td>{new Date(item.start_date).toLocaleDateString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

@@ -24,10 +24,13 @@ mongoose.connect(mongoURI, {
 // Seed function to populate data
 const seedData = async () => {
   try {
+    await Employee.deleteMany({});
+    await Project.deleteMany({});
+    await ProjectAssignment.deleteMany({});
     // Create sample Employees
     const employees = await Employee.insertMany([
       { employee_id: 'E001', full_name: 'John Doe', email: 'john.doe@example.com', hashed_password: 'passwor' },
-      { employee_id: 'E002', full_name: 'Jane Smith', email: 'jane.smith@example.com', hashed_password: 'password123' },
+      { employee_id: 'E002', full_name: 'Jane Smith', email: 'jane.smith@example.com', hashed_password: 'password' },
       { employee_id: 'E003', full_name: 'Alice Johnson', email: 'alice.johnson@example.com', hashed_password: 'password123' },
       { employee_id: 'E004', full_name: 'Bob Brown', email: 'bob.brown@example.com', hashed_password: 'password123' },
       { employee_id: 'E005', full_name: 'Charlie Davis', email: 'charlie.davis@example.com', hashed_password: 'password123' },
