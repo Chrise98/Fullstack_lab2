@@ -44,4 +44,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get all assignments with populated employee and project info
+router.get('/', async (req, res) => {
+    try {
+      const assignments = await ProjectAssignment.find()
+        .populate('employee_id') 
+        .populate('project_code') 
+        .sort({ start_date: -1 });
+  
+      res.json(assignments);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+
 module.exports = router;

@@ -2,7 +2,7 @@
     max-width: 900px;
     margin: 2rem auto;
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: rgb(51, 105, 172);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
@@ -12,6 +12,7 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg,#390bad ,#a18cd1 ,#390bad );
+    color: white;
   }
   
   
@@ -35,17 +36,20 @@ body {
   }
   
   .assignment-table th {
-    background-color: #f7f7f7;
+    background-color: #5784c6;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   .assignment-table th:hover {
-    background-color: #eaeaea;
+    background-color: #6974b1;
   }
   
   .assignment-table tr:nth-child(even) {
-    background-color: #fafafa;
+    background-color: #0a54a3;
+  }
+  .assignment-table tr:nth-child(odd) {
+    background-color: #1265be;
   }
   
 
