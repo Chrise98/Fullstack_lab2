@@ -40,7 +40,7 @@ const seedData = async () => {
     const projects = await Project.insertMany([
       { project_code: 'P001', project_name: 'Project A', project_description: 'This is a test project.' },
       { project_code: 'P002', project_name: 'Project B', project_description: 'This is another test project.' },
-      { project_code: 'P003', project_name: 'Project G', project_description: 'Test project for research.' },
+      { project_code: 'P003', project_name: 'Project C', project_description: 'Test project for research.' },
       { project_code: 'P004', project_name: 'Project D', project_description: 'Project focusing on security.' },
       { project_code: 'P005', project_name: 'Project E', project_description: 'Project for marketing campaign.' },
     ]);

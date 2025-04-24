@@ -76,7 +76,7 @@ body {
   animation-delay: calc(-1s * var(--i)); 
   left: calc(100% * var(--x)); 
   bottom: -50px; 
-  transform: translateX(-50%); /
+  transform: translateX(-50%);
 }
 
 /* Bubble size */

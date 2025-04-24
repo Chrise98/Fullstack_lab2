@@ -1,13 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
-const app = express();
+const app = express(); // ✅ Initialize 'app' first!
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Import routes
+// Serve static files from the React build (dist) folder
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// API Routes
 const employeeRoutes = require('./routes/employees');
 const projectRoutes = require('./routes/projects');
 const assignmentRoutes = require('./routes/projectAssignments');
@@ -15,6 +21,16 @@ const assignmentRoutes = require('./routes/projectAssignments');
 app.use('/api/employees', employeeRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/project_assignments', assignmentRoutes);
+
+// Catch-all to serve index.html for React routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+// Root route (optional)
+app.get('/', (req, res) => {
+  res.send('Server is running...');
+});
 
 const PORT = process.env.PORT || 5000;
 
