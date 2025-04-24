@@ -4,13 +4,13 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
-const app = express(); // ✅ Initialize 'app' first!
+const app = express(); // Initialize  App
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the React build (dist) folder
+// Serve static files from the React build 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // API Routes
@@ -22,12 +22,12 @@ app.use('/api/employees', employeeRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/project_assignments', assignmentRoutes);
 
-// Catch-all to serve index.html for React routes
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-// Root route (optional)
+// Root route
 app.get('/', (req, res) => {
   res.send('Server is running...');
 });
