@@ -15,7 +15,7 @@ app.use(express.json());
 // Serve static files in React frontend
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// --- 5. Import and use routes ---
+// Import and use routes 
 const employeeRoutes = require('./routes/employees');
 const projectRoutes = require('./routes/projects');
 const assignmentRoutes = require('./routes/projectAssignments');
