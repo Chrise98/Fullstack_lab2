@@ -5,10 +5,16 @@ import './ProjectTable.css';
 
 
 const ProjectTable = () => {
+  //holds a list of project assignments you get from backend
+  //tracks which column you want to sort
+  //Tacks if you want sorting to be ascending (true) or descending (false)
+
   const [assignments, setAssignments] = useState([]);
   const [sortBy, setSortBy] = useState('start_date');
   const [asc, setAsc] = useState(true);
 
+
+// It displays a table showing project assignments, by fetching data from your backend
   const fetchData = async () => {
     const res = await axios.get('http://localhost:5000/api/project_assignments');
     setAssignments(res.data);

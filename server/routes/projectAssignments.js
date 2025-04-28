@@ -4,6 +4,10 @@ const ProjectAssignment = require('../models/ProjectAssignment');
 const Employee = require('../models/Employee');
 const Project = require('../models/Project');
 
+//Creates a mini express server that handles Project related API request
+//It can add a new project to the database (post request)
+//Get a list of all the projects from database (Get request)
+//It uses a procjet model from mongose to talk to the MongoDb database.
 // Assign an employee to a project
 router.post('/', async (req, res) => {
   try {
@@ -60,3 +64,4 @@ router.get('/', async (req, res) => {
 
 
 module.exports = router;
+//Exports to the router so that the main server can use it

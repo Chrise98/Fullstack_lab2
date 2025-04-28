@@ -5,14 +5,16 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
-// Initialize app 
+// Initialize app and handles API request
 const app = express();
 
-// Middleware 
+// Middleware lets you react frontend talk to the backend
+// Express to automatically parse incoming JSON request when sending a post request.
 app.use(cors());
 app.use(express.json());
 
-// Serve static files in React frontend
+// Serve static files in React frontend. Serves the build of frontend files
+// this makes sure that the frontend loads properly.
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Import and use routes 
@@ -25,11 +27,13 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/project_assignments', assignmentRoutes);
 
 // Frontend fallback route for React Router
+// Catches any routes that the frontend does not recognize. 
+// This is important so that the reacts still works.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-// Root route 
+// Root route mosyly checks if the backend is alive.
 app.get('/', (req, res) => {
   res.send('Server is running...');
 });
